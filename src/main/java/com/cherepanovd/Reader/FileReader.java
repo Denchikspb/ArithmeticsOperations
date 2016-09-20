@@ -31,14 +31,4 @@ public class FileReader {
 
         return dataList;
     }
-
-//    public static void main(String[] args) {
-//        List<String[]> data = FileReader.readFile("src/main/resources/datafile");
-//        for (String[] s: data){
-//            if("+".equals(s[2]))
-//                System.out.println(Arrays.toString(s));
-//        }
-//    }
-
-
 }

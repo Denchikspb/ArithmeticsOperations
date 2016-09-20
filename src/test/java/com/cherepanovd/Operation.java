@@ -21,7 +21,5 @@ public abstract class Operation {
         this.operation = operation;
         this.result = result;
     }
-
     abstract void test();
-
 }
