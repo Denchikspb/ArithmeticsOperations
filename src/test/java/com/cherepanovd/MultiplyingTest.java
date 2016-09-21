@@ -4,6 +4,7 @@ import com.cherepanovd.Reader.FileReader;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
+import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
 import java.util.ArrayList;
@@ -30,8 +31,19 @@ public class MultiplyingTest extends Operation {
     @Title("Проверка на умножение")
     @Test
     public void test() {
-        final int expectedResult = Integer.parseInt(result);
-        final int actualResult = Integer.parseInt(operand1) * Integer.parseInt(operand2);
-        Assert.assertEquals(expectedResult, actualResult);
+        int expectedResult = Integer.parseInt(result);
+        int first = Integer.parseInt(operand1);
+        int second = Integer.parseInt(operand2);
+        checkResult(expectedResult, mult(first,second));
+    }
+
+    @Step("Проверяем {0} * {1}")
+    public int mult(int first, int second){
+        return first * second;
+    }
+
+    @Step("Проверка результата вычислений: {0} = {1}?")
+    public void checkResult(int expectedResult, int actualResult){
+        Assert.assertTrue("Полученное число("+ actualResult+") не равно проверяемому("+expectedResult+")", actualResult == expectedResult);
     }
 }
